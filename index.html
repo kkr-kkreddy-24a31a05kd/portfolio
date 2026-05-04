@@ -3,151 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B. Krishna Kalyan Reddy - Portfolio</title>
+    <meta name="description" content="Portfolio of Krishna Kalyan Reddy – Full-Stack Developer & Data Analyst, 35+ certifications, 4 internships">
+    <title>Krishna Kalyan Reddy | Full-Stack Developer & Data Analyst</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: all 0.2s ease;
         }
 
+        /* Fixed color palette */
         :root {
-            --primary-dark: #000000;
-            --secondary-dark: #1a1a1a;
-            --tertiary-dark: #2d2d2d;
-            --accent-gold: #0099ff;
-            --accent-cyan: #00d4ff;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0b0;
-            --border-color: #333333;
+            --primary: #3B82F6;
+            --primary-hover: #2563EB;
+            --accent: #22C55E;
+            --accent-hover: #16A34A;
+            --bg: #0F172A;
+            --surface: #1E293B;
+            --border: #334155;
+            --text-heading: #F1F5F9;
+            --text-body: #E5E7EB;
+            --text-muted: #94A3B8;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
         }
 
         body {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #0f0f0f 100%);
-            color: var(--text-primary);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-body);
             line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--accent-gold);
-            padding: 1rem 2rem;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-brand {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-gold);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Header/Hero */
-        .hero {
-            margin-top: 80px;
-            padding: 5rem 2rem;
-            text-align: center;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan), var(--accent-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: slideInUp 0.8s ease-out;
-        }
-
-        .hero .subtitle {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            animation: slideInUp 0.9s ease-out;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            gap: 2rem;
-            margin: 2rem 0;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            background: var(--secondary-dark);
-            border: 2px solid var(--accent-gold);
-            border-radius: 8px;
-            padding: 1rem 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .badge:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
-            border-color: var(--accent-cyan);
-        }
-
-        .badge-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-            display: block;
-        }
-
-        .badge-label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            scroll-behavior: smooth;
         }
 
         /* Container */
@@ -157,323 +53,235 @@
             padding: 0 2rem;
         }
 
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .theme-toggle {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-heading);
+        }
+
+        /* Hero */
+        .hero {
+            margin-top: 100px;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        .typed-text {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
         /* Sections */
         section {
             padding: 4rem 0;
-            border-bottom: 1px solid var(--border-color);
-            animation: fadeIn 0.8s ease-out;
+            border-bottom: 1px solid var(--border);
         }
-
-        section:last-child {
-            border-bottom: none;
-        }
-
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
             display: flex;
             align-items: center;
             gap: 1rem;
-            position: relative;
+            color: var(--text-heading);
         }
-
         .section-title::before {
             content: '';
-            width: 50px;
+            width: 40px;
             height: 4px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
+            background: linear-gradient(90deg, var(--primary), var(--accent));
             border-radius: 2px;
         }
-
-        /* Professional Profile */
-        .profile-text {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--secondary-dark), var(--tertiary-dark));
-            padding: 2rem;
-            border-left: 4px solid var(--accent-gold);
-            border-radius: 4px;
-        }
-
-        /* Education */
-        .education-item {
-            background: var(--secondary-dark);
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--accent-cyan);
-            transition: all 0.3s ease;
-        }
-
-        .education-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.15);
-        }
-
-        .education-item h3 {
-            font-size: 1.5rem;
-            color: var(--accent-gold);
-            margin-bottom: 0.5rem;
-        }
-
-        .education-meta {
-            color: var(--accent-cyan);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Experience Cards */
+        /* Cards */
         .experience-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2rem;
         }
-
-        .experience-card {
-            background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--tertiary-dark) 100%);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: var(--shadow-sm);
         }
-
-        .experience-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
-
-        .experience-card:hover::before {
-            transform: translateX(0);
-        }
-
-        .experience-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
-            border-color: var(--accent-gold);
-        }
-
-        .experience-card h3 {
-            color: var(--accent-gold);
+        .card h3 {
+            color: var(--primary);
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
-
-        .experience-card .duration {
-            color: var(--accent-cyan);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .experience-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 0.8rem;
-            line-height: 1.6;
-        }
-
-        .grade {
+        .badge {
             display: inline-block;
-            background: var(--accent-cyan);
-            color: var(--primary-dark);
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
             margin-top: 0.5rem;
         }
-
-        /* Technical Skills */
-        .skills-category {
-            margin-bottom: 2.5rem;
-        }
-
-        .skills-category h3 {
-            color: var(--accent-gold);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
         .skill-tag {
-            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold);
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            display: inline-block;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-body);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            margin: 0.3rem;
+            transition: all 0.2s;
             cursor: default;
         }
-
         .skill-tag:hover {
-            background: var(--accent-gold);
-            color: var(--primary-dark);
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
-
-        /* Certifications */
-        .certification-group {
-            margin-bottom: 2.5rem;
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
         }
-
-        .certification-group h3 {
-            color: var(--accent-cyan);
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+        .btn-primary {
+            background: var(--primary);
+            color: white;
         }
-
-        .certification-list {
-            list-style: none;
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
         }
-
-        .certification-list li {
-            padding: 0.8rem;
-            color: var(--text-secondary);
-            border-left: 3px solid var(--accent-gold);
-            padding-left: 1rem;
-            margin-bottom: 0.8rem;
-            transition: all 0.3s ease;
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
         }
-
-        .certification-list li:hover {
-            padding-left: 1.5rem;
-            color: var(--accent-gold);
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
         }
-
-        .cert-date {
-            color: var(--accent-cyan);
-            font-size: 0.85rem;
-            margin-left: 0.5rem;
-        }
-
-        /* Footer/Links */
+        /* Social links */
         .social-links {
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
             justify-content: center;
-            margin: 3rem 0;
             flex-wrap: wrap;
+            margin-top: 2rem;
         }
-
-        .social-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 0.8rem 1.5rem;
-            border: 2px solid var(--accent-gold);
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            font-weight: 500;
+        .social-icon {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            color: var(--text-heading);
+            font-size: 1.4rem;
+            transition: all 0.2s;
         }
-
-        .social-link:hover {
-            background: var(--accent-gold);
-            color: var(--primary-dark);
+        .social-icon:hover {
+            background: var(--primary);
+            color: white;
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
         }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
         }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero {
-                padding: 3rem 1rem;
-                margin-top: 150px;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .experience-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .social-links {
-                gap: 1rem;
-            }
+            nav { flex-direction: column; gap: 1rem; }
+            .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .hero h1 { font-size: 2rem; }
+            .container { padding: 0 1rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-brand">Krishna Kalyan Reddy</div>
         <ul class="nav-links">
@@ -484,307 +292,226 @@
             <li><a href="#certifications">Certifications</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+        <div class="theme-toggle" id="themeToggle" style="display: none;">
+            <i class="fas fa-moon"></i>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>B. Krishna Kalyan Reddy</h1>
-        <div class="subtitle">Computer Science & Engineering | Pragati Engineering College</div>
-        <div class="subtitle" style="color: var(--accent-cyan); font-size: 1rem;">B.Tech 2024-2028 (Currently 2nd Year)</div>
-        
-        <div class="hero-badge">
-            <div class="badge">
-                <span class="badge-number">35+</span>
-                <span class="badge-label">Certifications</span>
-            </div>
-            <div class="badge">
-                <span class="badge-number">4</span>
-                <span class="badge-label">Internships</span>
-            </div>
-            <div class="badge">
-                <span class="badge-number">3</span>
-                <span class="badge-label">Job Simulations</span>
-            </div>
-            <div class="badge">
-                <span class="badge-number">12+</span>
-                <span class="badge-label">Global Issuers</span>
+    <main>
+        <div class="container">
+            <div class="hero">
+                <h1>B. Krishna Kalyan Reddy</h1>
+                <div class="typed-text"><span id="typed"></span></div>
+                <p style="margin-top: 1rem; max-width: 700px; margin-left: auto; margin-right: auto;">Full-Stack Developer | Data Analyst | 35+ certifications, 4 internships, 3 job simulations.</p>
+                <div class="stats">
+                    <div class="stat-card"><div class="stat-number">35+</div><div>Certifications</div></div>
+                    <div class="stat-card"><div class="stat-number">4</div><div>Internships</div></div>
+                    <div class="stat-card"><div class="stat-number">3</div><div>Job Simulations</div></div>
+                    <div class="stat-card"><div class="stat-number">12+</div><div>Global Issuers</div></div>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#skills" class="btn btn-primary">View Skills</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    <button id="resumeDownloadBtn" class="btn btn-primary" style="background: var(--accent);">Download Resume (PDF)</button>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Professional Profile -->
-    <section id="profile">
-        <div class="container">
-            <div class="section-title">Professional Profile</div>
-            <div class="profile-text">
-                Exceptionally driven 2nd-year Computer Science undergraduate with a cross-domain portfolio spanning Data Engineering, AI Development, and Digital Marketing. Holder of 35+ certifications from 12+ globally recognized organizations including AWS, IBM, Microsoft, Infosys, and EY. Passionate about building impactful technology solutions and growing into a full-spectrum technology leader through proven 4 real-world internships and 3 industry job simulations.
-            </div>
-        </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education">
-        <div class="container">
-            <div class="section-title">Education</div>
-            <div class="education-item">
-                <h3>B.Tech in Computer Science & Engineering</h3>
-                <div class="education-meta">Pragati Engineering College (Autonomous) • 2024 - 2028</div>
-                <p>Currently 2nd Year • Expected Graduation: 2028</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Internship Experience -->
-    <section id="experience">
-        <div class="container">
-            <div class="section-title">Internship Experience</div>
-            
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <h3>📊 Data Engineering Virtual Internship</h3>
-                    <div class="duration">🏢 AICTE - EduSkills | AWS Academy Curriculum</div>
-                    <p><strong>July – September 2025 • 10 Weeks</strong></p>
-                    <p>Completed a 10-week virtual internship covering Data Engineering principles using AWS Academy curriculum. Built knowledge of cloud-based data pipelines, data infrastructure, and analytics-driven workflows.</p>
-                    <p>Recognized under AICTE National Internship Portal • <span class="grade">Grade A</span></p>
-                </div>
-
-                <div class="experience-card">
-                    <h3>☁️ Cloud Financial Management Virtual Internship</h3>
-                    <div class="duration">🏢 AICTE - EduSkills | AWS Builder Curriculum</div>
-                    <p><strong>October – December 2025 • 10 Weeks</strong></p>
-                    <p>Mastered AWS Cloud Financial Management principles including billing, budgeting, cost optimization, savings plans, and hybrid cloud strategies. Completed FinOps fundamentals training backed by 12-course AWS certification pathway.</p>
-                    <p><span class="grade">Grade O - Outstanding (90-100)</span></p>
-                </div>
-
-                <div class="experience-card">
-                    <h3>🎨 UI/UX Design Intern</h3>
-                    <div class="duration">🏢 Snetron Systems Private Limited (ISO 9001 Certified)</div>
-                    <p><strong>July 17 – August 17, 2025 • 4 Weeks</strong></p>
-                    <p>Designed and delivered UI/UX projects demonstrating outstanding creativity, technical proficiency, and innovative problem-solving. Received recommendation for exceptional performance and deep design understanding.</p>
-                </div>
-
-                <div class="experience-card">
-                    <h3>📱 Marketing Intern</h3>
-                    <div class="duration">🏢 Mindenious - Elevate Your Intellect</div>
-                    <p><strong>October – November 10, 2025 • 1 Month</strong></p>
-                    <p>Contributed as Brand Marketing Intern focusing on branding, digital marketing tools, consumer behavior analysis, and campus promotion. Recognized by Chief Marketing Officer for exceptional skills and valuable team contribution.</p>
+        <!-- Profile Section -->
+        <section id="profile">
+            <div class="container">
+                <div class="section-title">Professional Profile</div>
+                <div class="card">
+                    <p>Exceptionally driven Full-Stack Developer & Data Analyst with cross-domain expertise in Cloud Computing, Cybersecurity, Data Engineering, UI/UX Design, Back-End Development, Generative AI, and Digital Marketing. Holder of 35+ certifications from 12+ globally recognized organizations — AWS, IBM, Microsoft, Infosys, Cisco, JPMorgan Chase, Tata, EY, HP, Accenture, Wadhwani Foundation, and more. Proven through 4 real-world internships and 3 industry job simulations. Passionate about building impactful technology solutions and growing into a full-spectrum technology leader.</p>
                 </div>
             </div>
+        </section>
 
-            <div style="margin-top: 3rem;">
-                <h3 style="color: var(--accent-gold); margin-bottom: 2rem;">Virtual Job Simulations</h3>
+        <!-- Education -->
+        <section id="education">
+            <div class="container">
+                <div class="section-title">Education</div>
+                <div class="card">
+                    <h3>B.Tech in Computer Science & Engineering</h3>
+                    <p>Pragati Engineering College (Autonomous) • 2024 – 2028</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Internships -->
+        <section id="experience">
+            <div class="container">
+                <div class="section-title">Internship Experience</div>
                 <div class="experience-grid">
-                    <div class="experience-card">
-                        <h3>💻 Software Engineering Job Simulation</h3>
-                        <div class="duration">🏢 JPMorgan Chase & Co.</div>
-                        <p><strong>July – August 2025</strong></p>
-                        <p>Project Setup • Kafka Integration • H2 Integration • REST API Integration • REST API Controller</p>
-                    </div>
-
-                    <div class="experience-card">
-                        <h3>🔐 Cybersecurity Analyst Job Simulation</h3>
-                        <div class="duration">🏢 Tata | Forage</div>
-                        <p><strong>August 28, 2025</strong></p>
-                        <p>IAM Fundamentals • IAM Strategy Assessment • Custom IAM Solutions • Platform Integration</p>
-                    </div>
-
-                    <div class="experience-card">
-                        <h3>🤖 GenAI Powered Data Analytics Job Simulation</h3>
-                        <div class="duration">🏢 Tata | Forage</div>
-                        <p><strong>September 17, 2025</strong></p>
-                        <p>Exploratory Data Analysis • Risk Profiling • Predicting Delinquency with AI • AI-driven Collections Strategy • Data Storytelling</p>
-                    </div>
+                    <div class="card"><h3>📊 Data Engineering Virtual Internship</h3><p>AICTE – EduSkills | AWS Academy Curriculum</p><p><strong>July–Sept 2025 | 10 Weeks</strong></p><p>Cloud-based data pipelines, data infrastructure, analytics workflows. Recognized under AICTE National Internship Portal.</p><span class="badge">Grade A</span></div>
+                    <div class="card"><h3>☁️ Cloud Financial Management Intern</h3><p>AICTE – EduSkills | AWS Skill Builder</p><p><strong>Oct–Dec 2025 | 10 Weeks</strong></p><p>AWS billing, cost optimization, savings plans, hybrid cloud. FinOps fundamentals.</p><span class="badge">Grade O (Outstanding)</span></div>
+                    <div class="card"><h3>🎨 UI/UX Design Intern</h3><p>Sneatron Systems Pvt Ltd (ISO 9001)</p><p><strong>July 17 – Aug 17, 2025 | 4 Weeks</strong></p><p>Delivered UI/UX projects, commended for creativity and technical proficiency.</p></div>
+                    <div class="card"><h3>📈 Marketing Intern</h3><p>Mindenious – Elevate Your Intellect</p><p><strong>Oct – Nov 2025 | 1 Month</strong></p><p>Branding, digital marketing tools, consumer behavior. Recognized by CMO.</p></div>
+                </div>
+                <div class="section-title" style="margin-top: 2rem;">Virtual Job Simulations</div>
+                <div class="experience-grid">
+                    <div class="card"><h3>JPMorgan Chase & Co.</h3><p>Software Engineering Job Simulation</p><p>Project Setup, Kafka, H2, REST API Integration, Controller</p></div>
+                    <div class="card"><h3>Tata | Forage</h3><p>Cybersecurity Analyst</p><p>IAM Fundamentals, IAM Strategy, Custom IAM Solutions, Platform Integration</p></div>
+                    <div class="card"><h3>Tata | Forage</h3><p>GenAI Powered Data Analytics</p><p>EDA, Risk Profiling, Predicting Delinquency, AI Collections, Data Storytelling</p></div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Technical Skills -->
-    <section id="skills">
-        <div class="container">
-            <div class="section-title">Technical Skills</div>
-
-            <div class="skills-category">
-                <h3>💻 Programming & Development</h3>
-                <div class="skills-container">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">C</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">HTML / CSS</span>
-                    <span class="skill-tag">SwiftUI</span>
-                    <span class="skill-tag">REST APIs</span>
-                    <span class="skill-tag">Kafka</span>
-                </div>
+        <!-- Technical Skills -->
+        <section id="skills">
+            <div class="container">
+                <div class="section-title">Technical Skills</div>
+                <div><h3 style="color: var(--primary);">Programming & Development</h3><div> <span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">C</span><span class="skill-tag">JavaScript</span><span class="skill-tag">HTML/CSS</span><span class="skill-tag">SwiftUI</span><span class="skill-tag">REST APIs</span><span class="skill-tag">Kafka</span> </div></div>
+                <div style="margin-top: 1.5rem;"><h3 style="color: var(--primary);">Cloud, Data & AI</h3><div><span class="skill-tag">AWS Cloud</span><span class="skill-tag">Data Engineering</span><span class="skill-tag">Amazon EC2</span><span class="skill-tag">FinOps</span><span class="skill-tag">Azure AI</span><span class="skill-tag">GenAI/ML</span><span class="skill-tag">Cloud Cost Mgmt</span></div></div>
+                <div style="margin-top: 1.5rem;"><h3 style="color: var(--primary);">Design, Security & Tools</h3><div><span class="skill-tag">UI/UX Design</span><span class="skill-tag">Cybersecurity</span><span class="skill-tag">IAM</span><span class="skill-tag">Git & GitHub</span><span class="skill-tag">Figma/Canva</span><span class="skill-tag">VS Code</span><span class="skill-tag">Excel+AI</span></div></div>
+                <div style="margin-top: 1.5rem;"><h3 style="color: var(--primary);">Professional & Soft Skills</h3><div><span class="skill-tag">Brand Marketing</span><span class="skill-tag">Self Management</span><span class="skill-tag">Interpersonal Skills</span><span class="skill-tag">CX Strategy</span></div></div>
             </div>
+        </section>
 
-            <div class="skills-category">
-                <h3>📊 Data & AI</h3>
-                <div class="skills-container">
-                    <span class="skill-tag">Data Engineering</span>
-                    <span class="skill-tag">GenAI / ML</span>
-                    <span class="skill-tag">AWS Academy</span>
-                    <span class="skill-tag">Data Storytelling</span>
-                    <span class="skill-tag">Exploratory Data Analysis</span>
-                </div>
+        <!-- Certifications -->
+        <section id="certifications">
+            <div class="container">
+                <div class="section-title">Certifications (35+)</div>
+                <div class="card"><h3>AWS Academy</h3><ul><li>AWS Academy Cloud Foundations (20 hrs) – Sep 2025</li><li>Cloud Financial Management: FinOps Fundamentals & Strategies (Part 1&2) – Dec 2025</li><li>Cost Optimization Solutions for FinOps – Dec 2025</li><li>AWS Pricing, Billing & Cost Management, Savings Plans – Dec 2025</li><li>AWS Best Practices for Hybrid Cloud Adoption – Dec 2025</li><li>AWS Cloud Economics for Healthcare/Startups/Finance – Dec 2025</li></ul></div>
+                <div class="card" style="margin-top: 1rem;"><h3>IBM SkillsBuild</h3><ul><li>Back-End Development (Jan 2026)</li><li>Fundamentals of Sustainability and Technology (Feb 2026)</li><li>UX Design Fundamentals, IT Fundamentals, Web Development (2025)</li></ul></div>
+                <div class="card" style="margin-top: 1rem;"><h3>Infosys Springboard, Cisco, Microsoft, HP LIFE</h3><ul><li>Basics of Python, Business Communication, EC2 Basics – Aug 2025</li><li>Introduction to Cybersecurity – Cisco (May 2025)</li><li>AI Skills Passport, Green Skills Passport – EY & Microsoft (Dec 2025)</li><li>Customer Experience (CX), Digital Business Skills – HP LIFE (May 2025)</li></ul></div>
+                <div class="card" style="margin-top: 1rem;"><h3>Wadhwani Foundation, Udemy, Coursera</h3><ul><li>Success at Work (12h), Self Management Advanced (8.75h), Interpersonal Skills (7h) – Nov/Dec 2025</li><li>Google Bard Generative AI Masterclass, iOS SwiftUI, Java Test Automation – Udemy</li><li>Microsoft Excel Using AI Workshop – OfficeMaster (Oct 2025)</li></ul></div>
             </div>
+        </section>
 
-            <div class="skills-category">
-                <h3>🎨 Design, Tools & Platforms</h3>
-                <div class="skills-container">
-                    <span class="skill-tag">UI/UX Design</span>
-                    <span class="skill-tag">Figma</span>
-                    <span class="skill-tag">Canva</span>
-                    <span class="skill-tag">VS Code</span>
-                    <span class="skill-tag">Git & GitHub</span>
-                    <span class="skill-tag">Excel + VBA + AI</span>
-                </div>
-            </div>
-
-            <div class="skills-category">
-                <h3>🌟 Professional & Soft Skills</h3>
-                <div class="skills-container">
-                    <span class="skill-tag">Brand Marketing</span>
-                    <span class="skill-tag">Self Management</span>
-                    <span class="skill-tag">Interpersonal Skills</span>
-                    <span class="skill-tag">CX Strategy</span>
-                    <span class="skill-tag">Digital Marketing</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications -->
-    <section id="certifications">
-        <div class="container">
-            <div class="section-title">Certifications & Courses</div>
-
-            <div class="certification-group">
-                <h3>🏆 Amazon Web Services (AWS)</h3>
-                <ul class="certification-list">
-                    <li>AWS Academy Cloud Foundations (20 hrs) <span class="cert-date">Sep 2025</span></li>
-                    <li>Cloud Financial Management: FinOps Fundamentals & Strategies (Part 1 & 2) <span class="cert-date">Dec 2025</span></li>
-                    <li>Cost Optimization Solutions for FinOps (Part 1) <span class="cert-date">Dec 2025</span></li>
-                    <li>AWS Pricing - Creating Cloud Business KPIs (Unit Economics) <span class="cert-date">Dec 2025</span></li>
-                    <li>AWS Billing & Cost Management: AWS Billing Conductor, Budgets, Savings Plans <span class="cert-date">Dec 2025</span></li>
-                    <li>AWS Best Practices for Hybrid Cloud Adoption <span class="cert-date">Dec 2025</span></li>
-                    <li>AWS Cloud Economics for Healthcare & Finance Professionals <span class="cert-date">Dec 2025</span></li>
-                    <li>AWS Free Tier: Intro to Offerings, Monitoring Services, Managing Services <span class="cert-date">Dec 2025</span></li>
-                </ul>
-            </div>
-
-            <div class="certification-group">
-                <h3>🏢 IBM SkillsBuild</h3>
-                <ul class="certification-list">
-                    <li>Back-End Development <span class="cert-date">Jan 2026</span></li>
-                    <li>Fundamentals of Sustainability and Technology <span class="cert-date">Feb 2026</span></li>
-                    <li>User Experience Design Fundamentals <span class="cert-date">2026</span></li>
-                    <li>Information Technology Fundamentals & Web Development Fundamentals <span class="cert-date">Nov-Dec 2025</span></li>
-                </ul>
-            </div>
-
-            <div class="certification-group">
-                <h3>🚀 Infosys Springboard</h3>
-                <ul class="certification-list">
-                    <li>Basics of Python & Business Communication <span class="cert-date">Aug 2025</span></li>
-                    <li>Amazon EC2 Basics <span class="cert-date">Aug 2025</span></li>
-                </ul>
-            </div>
-
-            <div class="certification-group">
-                <h3>🎓 Cisco, Microsoft & EY</h3>
-                <ul class="certification-list">
-                    <li>Introduction to Cybersecurity - Cisco Networking Academy <span class="cert-date">May 2025</span></li>
-                    <li>AI Skills Passport, Green Skills Passport, Intersection of AI and Environmental Sustainability - EY & Microsoft <span class="cert-date">Dec 2025</span></li>
-                </ul>
-            </div>
-
-            <div class="certification-group">
-                <h3>📚 Coursera, Udemy, HP LIFE & More</h3>
-                <ul class="certification-list">
-                    <li>Customer Experience (CX) for Business Success - HP LIFE (HP Foundation) <span class="cert-date">May 2025</span></li>
-                    <li>Introduction to Digital Business Skills - HP LIFE <span class="cert-date">May 2025</span></li>
-                    <li>Google Bard Generative AI Masterclass & iOS Dev with SwiftUI - Udemy <span class="cert-date">Jul 2025</span></li>
-                    <li>Java Test Automation Engineer - Udemy <span class="cert-date">Jul 2025</span></li>
-                    <li>Microsoft Excel Using AI Workshop - OfficeMAster <span class="cert-date">Oct 2025</span></li>
-                    <li>Graphic Design: Pop Your LinkedIn with 3D Effect Using Canva - Coursera Project Network <span class="cert-date">Aug 2025</span></li>
-                    <li>Create Your First Python Program - Coursera Project Network</li>
-                </ul>
-            </div>
-
-            <div class="certification-group">
-                <h3>🎯 Wadhwani Foundation</h3>
-                <ul class="certification-list">
-                    <li>Success at Work (12 hrs) <span class="cert-date">Nov-Dec 2025</span></li>
-                    <li>Self Management Advanced (8.75 hrs) <span class="cert-date">Nov-Dec 2025</span></li>
-                    <li>Interpersonal Skills Advanced (7 hrs) <span class="cert-date">Nov-Dec 2025</span></li>
-                    <li>Self-Presentation Advanced</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact & Links -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-title">Connect With Me</div>
-            <div style="text-align: center;">
-                <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.1rem;">Reach out to discuss technology, internships, or collaboration opportunities</p>
+        <!-- Contact & Links -->
+        <section id="contact">
+            <div class="container">
+                <div class="section-title">Connect With Me</div>
                 <div class="social-links">
-                    <a href="https://github.com/kkr-kkreddy-24a31a05kd" class="social-link" target="_blank">
-                        GitHub
-                    </a>
-                    <a href="https://www.linkedin.com/in/banka-krishna-kalyan-reddy-b-kkr-/" class="social-link" target="_blank">
-                        LinkedIn
-                    </a>
-                    <a href="https://leetcode.com/u/bkk_reddy" class="social-link" target="_blank">
-                        LeetCode
-                    </a>
-                    <a href="https://hackerrank.com/profile/kkreddy_kk4" class="social-link" target="_blank">
-                        HackerRank
-                    </a>
+                    <a href="https://github.com/kkr-kkreddy-24a31a05kd" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/banka-krishna-kalyan-reddy-b-kkr-/" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://leetcode.com/u/bkk_reddy" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fas fa-code"></i></a>
+                    <a href="https://www.hackerrank.com/profile/kkreddy_kk4" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-hackerrank"></i></a>
+                    <a href="https://www.credly.com/users/banka-krishna-kalyan-reddy" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fas fa-certificate"></i></a>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p>📧 <strong>kkreddy.kkr@4@gmail.com</strong></p>
+                    <p>📍 Rajahmundry, India</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-secondary);">
-        <p>© 2025 B. Krishna Kalyan Reddy | Computer Science & Engineering Student</p>
-        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Pragati Engineering College (Autonomous) • Expected Graduation: 2028</p>
+        </section>
+    </main>
+    <footer>
+        <!-- Footer line removed as requested -->
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+        // Typed effect
+        new Typed('#typed', {
+            strings: ['Full-Stack Developer 🧩', 'Data Analyst 📊', 'Problem Solver 💡', 'Tech Enthusiast 🚀'],
+            typeSpeed: 60,
+            backSpeed: 40,
+            loop: true
         });
 
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+        // Full Resume PDF generation
+        document.getElementById('resumeDownloadBtn').addEventListener('click', () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            let y = 20;
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeIn 0.8s ease-out';
+            const addLine = (text, fontSize = 10, isBold = false) => {
+                doc.setFontSize(fontSize);
+                doc.setFont('helvetica', isBold ? 'bold' : 'normal');
+                doc.text(text, 20, y);
+                y += 6;
+            };
+            const addWrap = (text, fontSize = 10, isBold = false) => {
+                doc.setFontSize(fontSize);
+                doc.setFont('helvetica', isBold ? 'bold' : 'normal');
+                const lines = doc.splitTextToSize(text, 170);
+                doc.text(lines, 20, y);
+                y += lines.length * 5;
+            };
+
+            doc.setFontSize(20);
+            doc.setFont('helvetica', 'bold');
+            doc.text("KRISHNA KALYAN REDDY", 20, y);
+            y += 8;
+            doc.setFontSize(11);
+            doc.setFont('helvetica', 'normal');
+            doc.text("Full-Stack Developer | Data Analyst", 20, y);
+            y += 6;
+            doc.text("Rajahmundry, India | kkreddy.kkr@4@gmail.com", 20, y);
+            y += 8;
+
+            addLine("PROFESSIONAL PROFILE", 12, true);
+            addWrap("Exceptionally driven Full-Stack Developer & Data Analyst with cross-domain portfolio spanning Cloud Computing, Cybersecurity, Data Engineering, UI/UX, Back-End, GenAI, and Digital Marketing. Holder of 35+ certifications from 12+ global organizations — AWS, IBM, Microsoft, Infosys, Cisco, JPMorgan, Tata, EY, HP, Accenture, Wadhwani Foundation. Proven through 4 internships and 3 job simulations.", 10);
+            y += 4;
+            addLine("• 35+ Certifications   • 4 Internships   • 3 Job Simulations   • 12+ Global Issuers", 10);
+            y += 8;
+
+            addLine("EDUCATION", 12, true);
+            addLine("B.Tech in Computer Science & Engineering", 10, true);
+            addLine("Pragati Engineering College (Autonomous) • 2024 – 2028", 10);
+            y += 6;
+
+            addLine("INTERNSHIP EXPERIENCE", 12, true);
+            addLine("Data Engineering Virtual Internship – AICTE EduSkills | AWS Academy", 10, true);
+            addLine("July–Sept 2025 | Grade A", 10);
+            addWrap("Built cloud-based data pipelines, data infrastructure, analytics workflows.", 9);
+            y += 2;
+            addLine("Cloud Financial Management Virtual Internship – AWS Skill Builder", 10, true);
+            addLine("Oct–Dec 2025 | GRADE O (Outstanding)", 10);
+            addWrap("Mastered AWS FinOps: billing, budgeting, cost optimization, savings plans, hybrid cloud strategies.", 9);
+            y += 2;
+            addLine("UI/UX Design Intern – Sneatron Systems Pvt Ltd", 10, true);
+            addLine("July 17 – Aug 17, 2025", 10);
+            addWrap("Designed UI/UX projects, commended for exceptional performance and creativity.", 9);
+            y += 2;
+            addLine("Marketing Intern – Mindenious", 10, true);
+            addLine("Oct 10 – Nov 10, 2025", 10);
+            addWrap("Branding, digital marketing, consumer behavior analysis. Recognized by CMO.", 9);
+            y += 6;
+
+            addLine("VIRTUAL JOB SIMULATIONS (Forage)", 12, true);
+            addLine("JPMorgan Chase – Software Engineering: Kafka, REST API, H2 integration", 10);
+            addLine("Tata – Cybersecurity Analyst: IAM Fundamentals, Custom IAM, Platform Integration", 10);
+            addLine("Tata – GenAI Data Analytics: EDA, Risk Profiling, AI-driven Collections, Data Storytelling", 10);
+            y += 6;
+
+            addLine("TECHNICAL SKILLS", 12, true);
+            addWrap("Programming: Python, Java, C, JavaScript, HTML/CSS, SwiftUI, REST APIs, Kafka", 9);
+            addWrap("Cloud/Data/AI: AWS Cloud, Data Engineering, EC2, FinOps, Azure AI, GenAI/ML, Cloud Cost Mgmt", 9);
+            addWrap("Design/Security: UI/UX (Figma/Canva), Cybersecurity, IAM, Git, VS Code, Infosys Springboard, Excel+AI", 9);
+            y += 6;
+
+            addLine("CERTIFICATIONS (Selected)", 12, true);
+            addWrap("AWS: Cloud Foundations, FinOps Fundamentals, Cost Optimization, Billing & Cost Management, Savings Plans, Hybrid Cloud, Cloud Economics", 9);
+            addWrap("IBM: Back-End Development, Sustainability & Technology, UX Design, IT Fundamentals, Web Development", 9);
+            addWrap("Infosys: Python Basics, Business Communication, EC2 Basics", 9);
+            addWrap("Cisco: Introduction to Cybersecurity", 9);
+            addWrap("Microsoft: Computer Vision with Azure, AI Skills Passport, Green Skills Passport", 9);
+            addWrap("HP LIFE: Customer Experience, Digital Business Skills", 9);
+            addWrap("Wadhwani Foundation: Success at Work, Self Management, Interpersonal Skills, Self-Presentation", 9);
+            addWrap("Others: Google Bard GenAI, iOS SwiftUI, Java Test Automation, Excel AI Workshop", 9);
+            y += 6;
+
+            addLine("ONLINE PROFILES", 12, true);
+            addLine("LinkedIn: linkedin.com/in/banka-krishna-kalyan-reddy-b-kkr-/", 9);
+            addLine("GitHub: github.com/kkr-kkreddy-24a31a05kd", 9);
+            addLine("LeetCode: leetcode.com/u/bkk_reddy", 9);
+            addLine("HackerRank: hackerrank.com/profile/kkreddy_kk4", 9);
+            addLine("Credly: credly.com/users/banka-krishna-kalyan-reddy", 9);
+
+            doc.save("Krishna_Kalyan_Reddy_Resume.pdf");
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
         });
     </script>
 </body>
